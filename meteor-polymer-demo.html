@@ -1,0 +1,98 @@
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <!-- Add any <link rel="import" href="[path/to/element]"> tags you will use -->
+  <!-- <script src="bower_components/webcomponents/webcomponents.min.js"></script> -->
+
+    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/core-menu/core-menu.html">
+    <link rel="import" href="bower_components/core-drawer-panel/core-drawer-panel.html">
+    <link rel="import" href="bower_components/core-item/core-item.html">
+
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-item/paper-item.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/paper-slider/paper-slider.html">
+    <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+
+</head>
+
+<template name="layout">
+
+<core-drawer-panel id="drawerPanel">
+
+  {{> sidebar }}
+
+  <core-header-panel main>
+    <core-toolbar id="mainheader">
+      <paper-icon-button 
+        id="navicon" icon="menu"></paper-icon-button>
+      <span flex>Meteor + Polymer = ❤ </span>
+    </core-toolbar>
+
+    <div id="content" style="padding: 18px;">
+      {{> yield}}
+    </div>
+
+  </core-header-panel>
+</core-drawer-panel>
+</template>
+
+
+<template name="app">
+
+  <p>
+    An example app with Polymer and Meteor, read the post <a target="_new" href="http://grigio.org/polymer_and_meteorjs_holy_grail_web_development">here</a>.
+  </p>
+<div horizontal layout center>
+  <div flex three>
+    <core-label>A slider</core-label>
+  </div>
+  <div flex three>
+    <paper-slider id="uno" pin editable value="{{counter}}"></paper-slider>
+  </div>
+</div>
+<div horizontal layout center>
+  <div flex three>A slider in sync with data above</div>
+  <div flex three>
+    <paper-slider id="due" pin editable value="{{counter}}"></paper-slider>
+  </div>
+</div>
+    <h2>Some reactive data</h2>
+    <core-menu>
+    {{#each items}}
+        <paper-item data-del>{{name}}</paper-item>
+    {{else}}
+        <paper-item>Click "About" to refill</paper-item>
+    {{/each}}
+    </core-menu>
+
+
+
+</template>
+
+<template name="home">
+  <paper-dialog backdrop layered="false" heading="About" transition="core-transition-right">
+    <core-menu>
+    {{#each items}}
+        <paper-item data-del>{{name}}</paper-item>
+    {{/each}}
+    </core-menu>
+
+    <paper-button data-action="close-dialog" affirmative autofocus>Close</paper-button>
+  </paper-dialog>
+</template>
+
+<template name="sidebar">
+  <core-header-panel id="sidepanel" drawer>
+    <core-toolbar id="navheader'">
+      <span>Menu</span>
+    </core-toolbar>
+    <core-menu>
+      <core-item data-page label="Home"></core-item>
+      <core-item data-action="open-dialog" label="About"></core-item>
+    </core-menu>
+   </core-header-panel>
+</template>
