@@ -6351,7 +6351,7 @@ CustomElements.addModule(function(scope) {
   function installPolymerWarning() {
     if (window.Polymer === polymerStub) {
       window.Polymer = function() {
-        throw new Error("You tried to use polymer without loading it first. To " + 'load polymer, <link rel="import" href="' + 'components/polymer/polymer.html">');
+        throw new Error("You tried to use polymer without loading it first. To " + 'load polymer, <link rel="import" href="' + 'bower_components/polymer/polymer.html">');
       };
     }
   }

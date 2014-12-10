@@ -1,8 +1,10 @@
+
+<template name="layout">
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <!-- Add any <link rel="import" href="[path/to/element]"> tags you will use -->
-  <!-- <script src="bower_components/webcomponents/webcomponents.min.js"></script> -->
 
+    <link rel="import" href="bower_components/polymer/polymer.html">
     <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
     <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
     <link rel="import" href="bower_components/core-menu/core-menu.html">
@@ -17,9 +19,9 @@
 
     <link rel="import" href="bower_components/font-roboto/roboto.html">
 
+    <!-- Better non-Chrome browser compatibility-->
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
 </head>
-
-<template name="layout">
 
 <core-drawer-panel id="drawerPanel">
 
