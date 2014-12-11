@@ -8,4 +8,5 @@ autopublish
 insecure
 ecwyne:polymer-elements
 iron:router
+differential:vulcanize
 
