@@ -17,12 +17,12 @@ if (Meteor.isClient) {
   }
 
 Template.home.events({
-  'core-overlay-close-completed, click [data-action="close-dialog"]':function  () {
+  'core-overlay-close-completed, tap [data-action="close-dialog"]':function  () {
     console.log('paper-dialog DOM cleanup');
     $('paper-dialog').remove();
     $('.core-overlay-backdrop').remove();
   },
-  'click [data-del]': function () {
+  'tap [data-del]': function () {
     // increment the counter when button is clicked
     Items.remove({_id:this._id});
     console.log('data-del');
@@ -30,8 +30,8 @@ Template.home.events({
 });
 
 Template.sidebar.events({
-  'click [data-action="open-dialog"]': function () {
       Blaze.render(Template.home, document.body);
+  'tap [data-action="open-dialog"]': function () {
       // refill data
       if (Items.find().count() == 0) {
         for(var i = 0; i<10; i++){
@@ -39,7 +39,7 @@ Template.sidebar.events({
         }
       }
   },
-  'click [data-del]': function () {
+  'tap [data-del]': function () {
     // increment the counter when button is clicked
     Items.remove({_id:this._id});
     console.log('data-del');
@@ -58,7 +58,7 @@ Template.sidebar.events({
 
   Template.app.events({
 
-    'click [data-action="open-dialog"]': function () {
+    'tap [data-action="open-dialog"]': function () {
       Blaze.render(Template.home, document.body);
       console.log('open');
     },
@@ -68,7 +68,7 @@ Template.sidebar.events({
       // debugger
       Session.set('counter', e.target.value);
     },
-    'click [data-del]': function () {
+    'tap [data-del]': function () {
       Items.remove({_id:this._id});
       console.log('data-del app');
     }
@@ -77,7 +77,7 @@ Template.sidebar.events({
   Template.app.rendered = function (argument) {
       var navicon = document.getElementById('navicon');
       var drawerPanel = document.getElementById('drawerPanel');
-      navicon.addEventListener('click', function() {
+      navicon.addEventListener('tap', function() {
         drawerPanel.togglePanel();
       });
   }
