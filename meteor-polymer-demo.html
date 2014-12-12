@@ -3,9 +3,13 @@
 <head>
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
-    <!-- Better non-Chrome browser compatibility-->
-    <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
+    <!-- Better non-Chrome browser compatibility TODO: add conditional loading -->
+    <script src="/bower_components/webcomponentsjs/webcomponents.min.js"></script>
 </head>
+
+<body>
+
+<div id="placeholder"><!-- Used for overlays and <paper-dialog> --></div>
 
 <core-drawer-panel id="drawerPanel">
 
@@ -24,6 +28,8 @@
 
   </core-header-panel>
 </core-drawer-panel>
+
+</body>
 </template>
 
 

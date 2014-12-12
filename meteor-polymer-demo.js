@@ -30,8 +30,8 @@ Template.home.events({
 });
 
 Template.sidebar.events({
-      Blaze.render(Template.home, document.body);
   'tap [data-action="open-dialog"]': function () {
+      Blaze.render(Template.home, document.getElementById('placeholder'));
       // refill data
       if (Items.find().count() == 0) {
         for(var i = 0; i<10; i++){
