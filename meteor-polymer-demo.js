@@ -81,6 +81,12 @@ Template.sidebar.events({
         drawerPanel.togglePanel();
       });
   }
+
+  Meteor.startup(function (argument) {
+    window.addEventListener('polymer-ready', function(e) {
+      $('body').css('visibility','visible');
+    });
+  });
 }
 
 if (Meteor.isServer) {
